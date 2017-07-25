@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NodeJS Express bootstrap application to quick start API development process",
   "main": "index.js",
+  "keywords": "nodejs, api, node api bootstrap, node api quickstart",
   "scripts": {
     "start": "node index.js",
     "prod": "nodemon index.js --ENV production",
