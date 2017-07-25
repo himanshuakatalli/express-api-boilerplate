@@ -9,7 +9,7 @@ const PREDEFINED_ERRORS = {
 	"MongoError": {
 		"code": "E_DB_ERROR",
 		"status": 500,
-		"message": "Error while processing database query"
+		"message": "Error while processing db query"
 	}
 };
 

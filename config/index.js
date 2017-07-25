@@ -4,7 +4,7 @@ const activeAPIs = require('./api').getActiveAPIS();
 require('./utils').preloadAPIFiles(activeAPIs);
 
 const auth = require('./auth');
-const db = require('./database');
+const db = require('./db');
 const passport = require('passport');
 const services = require('./services');
 const expressApp = require('./express');

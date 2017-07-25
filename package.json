@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "seed": "node database/seeder.js",
     "prod": "nodemon index.js --ENV production",
     "dev": "nodemon index.js --ENV development",
     "devcluster": "nodemon index.js --ENV development --CLUSTERED true",
