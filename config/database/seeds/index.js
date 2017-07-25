@@ -3,14 +3,11 @@
 const E = require('./../../../app/helpers/v1/error');
 
 const commonSeeders = [
-	'role', 'user', 'oauth-client', 'university'
+
 ];
 
 const seeders = {
-	'role': require('./role'),
-	'user': require('./user'),
-	'university': require('./university'),
-	'oauth-client': require('./oauth-client')
+
 };
 
 const seederNotExists = (seederName) => !seeders[seederName];

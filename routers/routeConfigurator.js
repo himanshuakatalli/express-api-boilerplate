@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 
-const E = require('../../unirely/app/helpers/v1/error');
-const response = require('../../unirely/app/http/middlewares/response');
+const E = require('../app/helpers/v1/error');
+const response = require('../app/http/middlewares/response');
 
 const self = module.exports = {
     

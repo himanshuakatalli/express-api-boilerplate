@@ -1,7 +1,7 @@
 {
-  "name": "ims-api",
+  "name": "node-api-bootstrap",
   "version": "1.0.0",
-  "description": "API for institute management system application",
+  "description": "NodeJS Express bootstrap application to quick start API development process",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/himanshuakatalli/ims-api.git"
+    "url": "git+https://github.com/himanshuakatalli/node-api-bootstrap.git"
   },
   "author": "Team IMS",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/himanshuakatalli/ims-api/issues"
+    "url": "https://github.com/himanshuakatalli/node-api-bootstrap/issues"
   },
-  "homepage": "https://github.com/himanshuakatalli/ims-api#readme",
+  "homepage": "https://github.com/himanshuakatalli/node-api-bootstrap#readme",
   "dependencies": {
     "bcrypt": "1.0.2",
     "body-parser": "1.17.2",

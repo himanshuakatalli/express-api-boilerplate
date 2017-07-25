@@ -2,7 +2,6 @@
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const passport = require('passport');
 
 const self = module.exports = {
     
@@ -17,11 +16,6 @@ const self = module.exports = {
 
     setupRouters(app, routers) {
         routers.forEach(router => app.use(router.mountPoint, router.router));
-        return self;
-    },
-
-    setupPassport(app, passport) {
-        app.use(passport.initialize());
         return self;
     }
 }
