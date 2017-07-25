@@ -1,0 +1,25 @@
+{
+  "name": "ims-api",
+  "version": "1.0.0",
+  "description": "API for institute management system application",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshuakatalli/ims-api.git"
+  },
+  "author": "Team IMS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/himanshuakatalli/ims-api/issues"
+  },
+  "homepage": "https://github.com/himanshuakatalli/ims-api#readme",
+  "dependencies": {
+    "chai": "4.1.0",
+    "express": "4.15.3",
+    "mocha": "3.4.2",
+    "request": "2.81.0"
+  }
+}
