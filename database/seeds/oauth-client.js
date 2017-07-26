@@ -20,14 +20,14 @@ module.exports = {
             admin = await User.findOne({ roles: { $in: [adminRole._id] } });
         }
 
-        const imsApp = await OauthClient.findOne({ 'user_id': admin._id });
+        const imsApp = await OauthClient.findOne({ 'user': admin._id });
 
         if (imsApp || !admin) return;
 
         const secret  = await _hash.generateBcryptSecret([ admin._id, 'Unirely Web App' ]);
 
         return OauthClient.create({
-            user_id: admin._id,
+            user: admin._id,
             client_id: 'imsapp',
             client_name: 'IMS Web App',
             client_secret: secret,
