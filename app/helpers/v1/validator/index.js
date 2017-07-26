@@ -2,5 +2,6 @@
 
 module.exports = {
 	oauth: require('./oauth'),
-    hash: require('./hash')
+    hash: require('./hash'),
+    user: require('./user')
 };
