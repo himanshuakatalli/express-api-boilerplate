@@ -5,11 +5,11 @@ require('./utils').preloadAPIFiles(activeAPIs);
 
 const db = require('./db');
 const expressApp = require('./express');
+const envConfig = require('./environments');
 
 const auth = require('./auth');
 const passport = require('passport');
 const services = require('./services');
-const envConfig = require('./environments');
 
 const activeRouters = require('./../routers').getConfiguredRoutersFor(activeAPIs);
 

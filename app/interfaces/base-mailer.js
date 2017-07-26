@@ -1,6 +1,6 @@
 "use strict";
 
-const E = require('./../../app/helpers/v1/error');
+const E = require('../helpers/v1/error');
 
 class BaseMailer {
     constructor (config) {

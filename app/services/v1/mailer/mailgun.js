@@ -2,7 +2,7 @@
 
 const mailgun = require('mailgun-js');
 const mailerConfig = require('./../../../../config/services/mailer')('mailgun');
-const BaseMailer = require('./../../../../config/interfaces/base-mailer');
+const BaseMailer = require('../../../interfaces/base-mailer');
 
 class MailGun extends BaseMailer {
 
