@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Role = mongoose.model('Role');
 
 const ROLES = [
-	'ADMIN', 'STUDENT', 'COUNSELLOR', 'MENTOR'
+	'ADMIN', 'ORGANISATION_LEAD', 'INSTITUTE_LEAD'
 ];
 
 module.exports = {

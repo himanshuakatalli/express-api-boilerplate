@@ -6,12 +6,12 @@ const Schema = mongoose.Schema;
 
 const OauthCodeSchema = new Schema(
 	{
-		'client_id': {
+		'client': {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'OauthClient'
 		},
 
-		'user_id': {
+		'user': {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
 		},

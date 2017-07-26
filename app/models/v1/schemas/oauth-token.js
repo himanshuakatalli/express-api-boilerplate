@@ -7,13 +7,13 @@ const _token = require('./../../../helpers/v1/token');
 
 const OauthTokenSchema = new Schema(
 	{
-		'client_id': {
+		'client': {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'OauthClient',
 			default: null
 		},
 
-		'user_id': {
+		'user': {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 			default: null
@@ -58,8 +58,8 @@ OauthTokenSchema.statics.saveTokens = (user, client, tokens, scope, self) => {
 
 	for (let tokenType in tokens)
 		tokenData.push({
-			'client_id': client._id,
-			'user_id': user ? user._id : null,
+			'client': client._id,
+			'user': user ? user._id : null,
 			'token': tokens[tokenType].token,
 			'scope': tokenType === 'ACCESS' ? scope : null,
 			'type': tokenType,

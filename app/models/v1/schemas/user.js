@@ -25,14 +25,6 @@ const UserSchema = new Schema(
             ref: 'Role'
         }],
 
-        'universities': [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'University',
-                default: null
-            }
-        ],
-
         'verified': {
             type: Boolean,
             default: false

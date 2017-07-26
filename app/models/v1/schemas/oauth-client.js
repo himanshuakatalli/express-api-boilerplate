@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const OauthClientSchema = new Schema(
 	{
-		'user_id': {
+		'user': {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
 		},

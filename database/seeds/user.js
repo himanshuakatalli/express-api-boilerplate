@@ -6,7 +6,7 @@ const Role = mongoose.model('Role');
 
 module.exports = {
 	async run () {
-		let adminUser = await User.findOne({ email: 'management@unirely.com' });
+		let adminUser = await User.findOne({ email: 'admin@ims.com' });
 
 		if (adminUser)
 			return;
@@ -15,7 +15,7 @@ module.exports = {
 
 		return User.create({
 			fullname: 'Admin',
-			email: 'management@unirely.com',
+			email: 'admin@ims.com',
 			password: 'secret',
 			roles: [adminRole._id]
 		});

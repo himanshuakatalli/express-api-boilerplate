@@ -2,15 +2,8 @@
 
 const bcrypt = require('bcrypt');
 const SECRET = process.env.SECRET || 'ghO/I-uYjYTM[>n7hQ;a|nJlasex1&`/*-ut[uQ-wR33G#Dk$X}Me&g3tg~0_*.7WIK~M'
+
 const self = module.exports = {
-
-	generateSecret: data => {
-		if (Array.isArray(data))
-			return self.generateHashFor(data.join('-') + SECRET);
-
-		if (data && typeof data === 'object')
-			return self.generateHashFor(JSON.stringify(data) + SECRET);
-	},
 
 	generateHashSyncFor: value => bcrypt.hashSync(value, 10),
 
@@ -19,6 +12,14 @@ const self = module.exports = {
 	verifyHash: (value, hash) => bcrypt.compare(value, hash),
 
 	verifyHashSync: (value, hash) => bcrypt.compareSync(value, hash),
+
+    generateBcryptSecret: data => {
+        if (Array.isArray(data))
+            return self.generateHashFor(data.join('-') + SECRET);
+
+        if (data && typeof data === 'object')
+            return self.generateHashFor(JSON.stringify(data) + SECRET);
+    },
 
 	generateBase64Secret: data => {
 		if (Array.isArray(data))
