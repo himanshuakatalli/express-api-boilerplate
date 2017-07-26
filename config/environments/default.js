@@ -4,7 +4,7 @@ const activeAPIs = require('./../api').getActiveAPIS();
 module.exports = class DefaultConfig {
     constructor () {
         this.db = process.env.DB;
-        this.baseURL= 'http://localhost';
+        this.baseURL= process.env.BASE_URL || 'http://localhost';
         this.apiURL = {};
 
         activeAPIs.forEach(version => this.apiURL[version] = `${this.baseURL}/api/${version}`);

@@ -8,7 +8,7 @@ module.exports = class DevelopmentConfig extends DefaultConfig {
     constructor () {
         super();
         this.db = process.env.DB_DEV;
-        this.baseURL = process.env.BASE_URL_PROD;
+        this.baseURL = process.env.BASE_URL_DEV;
         this.apiURL = {};
         activeAPIs.forEach(version => this.apiURL[version] = `${this.baseURL}/api/${version}`);
     }
