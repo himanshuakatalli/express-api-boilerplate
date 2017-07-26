@@ -6,7 +6,9 @@ const setupOauthEndpoints = (routers, server) => {
 
 	routers.forEach(router => {
 		if (router.version !== 'root') {
-
+            router.router.post('/oauth/client', isAuthenticated('basic'), function (req, res) {
+                res.end('ASD');
+            });
 		}
 	});
 }

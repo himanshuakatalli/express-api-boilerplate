@@ -15,8 +15,8 @@ const EXPIRES_IN = {
 const JWT_CONFIG = {
 	'algorithm': 'HS256',
 	'secret': process.env.SECRET,
-	'issuer': 'api.unirely.co',
-	'audience': 'Unirely Web App'
+	'issuer': 'api.ims.com',
+	'audience': 'IMS Web App'
 };
 
 const JWT_VERIFICATION_OPT = {

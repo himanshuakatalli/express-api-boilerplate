@@ -22,10 +22,13 @@ const _localOauth = async (username, password, done) => {
             _validator.user.isValidUser(user) &&
             _hash.verifyHashSync(password, user.password) &&
             _validator.user.isAdmin(user)
-        )
+        ) {
+            console.log('Inside if');
             return done(null, user);
+        }
     }
     catch(err) {
+        console.log(err);
         return done(err);
     }
 };
