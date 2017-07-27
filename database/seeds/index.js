@@ -1,6 +1,6 @@
 "use strict";
 
-const E = require('../../app/helpers/v1/error');
+const _err = require('../../app/helpers/v1/error');
 
 const commonSeeders = [
 	'role', 'user', 'oauth-client'
@@ -19,14 +19,14 @@ module.exports = {
 	async run (common, extras) {
 		for (let key in commonSeeders){
 			if (seederNotExists(commonSeeders[key]))
-				throw E.createError( E.getError('SEEDER_NOT_DEFINED') ,`${seederName} seeder not defined`);
+				throw _err.createError( _err.getError('SEEDER_NOT_DEFINED') ,`${seederName} seeder not defined`);
 			await seeders[commonSeeders[key]].run();
 		}
 
 		if (extras) {
 			extras.forEach(seederName => {
 				if (seederNotExists(seederName))
-					throw E.createError( E.getError('SEEDER_NOT_DEFINED'), `${seederName} seeder not defined`);
+					throw _err.createError( _err.getError('SEEDER_NOT_DEFINED'), `${seederName} seeder not defined`);
 				seeders[seederName].run()
 			})
 		}

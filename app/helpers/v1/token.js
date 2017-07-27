@@ -4,7 +4,7 @@ const extend = require('util')._extend;
 const jwt = require('jsonwebtoken');
 const { JWT_CONFIG, EXPIRES_IN, JWT_VALID_META, JWT_VERIFICATION_OPT } = require('../../../config/auth/jwt');
 
-const E = require('./../../helpers/v1/error');
+const _err = require('./../../helpers/v1/error');
 
 const self = module.exports = {
 
@@ -60,7 +60,7 @@ const self = module.exports = {
 	areVerifiedTokenMetas (tokenMetas) {
 		for (let metaKey in tokenMetas)
 			if (JWT_VALID_META.indexOf(metaKey) < 0)
-				throw E.createError(E.getError('INVALID_JWT_OPTION'), `${metaKey} is not a valid JWT option`);
+				throw _err.createError(_err.getError('INVALID_JWT_OPTION'), `${metaKey} is not a valid JWT option`);
 
 		return true;
 	},

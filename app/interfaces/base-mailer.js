@@ -1,6 +1,6 @@
 "use strict";
 
-const E = require('../helpers/v1/error');
+const _err = require('../helpers/v1/error');
 
 class BaseMailer {
     constructor (config) {
@@ -8,11 +8,11 @@ class BaseMailer {
     }
 
     initialize() {
-        throw E.createError( E.getError('METHOD_NOT_OVERRIDDEN'), 'Initialize method needs to be overridden' );
+        throw _err.createError( _err.getError('METHOD_NOT_OVERRIDDEN'), 'Initialize method needs to be overridden' );
     }
 
     sendMail () {
-        throw E.createError( E.getError('METHOD_NOT_OVERRIDDEN'), 'Sendmail method needs to be overridden' );
+        throw _err.createError( _err.getError('METHOD_NOT_OVERRIDDEN'), 'Sendmail method needs to be overridden' );
     }
 }
 
