@@ -3,8 +3,8 @@
 const mongoose = require('mongoose');
 const OauthClient = mongoose.model('OauthClient');
 
-const _validator = require('./../../../helpers/v1/validator');
-const response = require('./../../middlewares/response');
+const _validator = require('../../../../helpers/v1/validator/index');
+const response = require('../../../middlewares/response');
 
 module.exports = {
     async getClientInfo (req, res) {
