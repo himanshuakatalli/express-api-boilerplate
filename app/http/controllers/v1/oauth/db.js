@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 
+const seeders = require('./../../../../../database/seeds');
 const response = require('./../../../middlewares/response');
 
 module.exports = {
@@ -22,7 +23,14 @@ module.exports = {
         }
     },
 
-    seed (extraSeeds = null) {
+    async seed (req, res) {
+        try {
+            await seeders.run(null, true);
+            response.created(res, { message: "Basic Seeds completed" });
+        }
 
+        catch (err) {
+            response.error(res, err);
+        }
     }
 };

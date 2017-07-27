@@ -4,6 +4,10 @@ const activeAPIs = require('./../api').getActiveAPIS();
 module.exports = class DefaultConfig {
     constructor () {
         this.db = process.env.DB;
+        this.auth = {
+            key: process.env.AUTH_KEY || 'imsbasic',
+            pass: process.env.AUTH_PASS || process.env.SECRET
+        };
         this.baseURL= process.env.BASE_URL || 'http://localhost';
         this.apiURL = {};
 

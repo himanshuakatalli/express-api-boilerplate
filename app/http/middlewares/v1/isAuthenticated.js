@@ -15,6 +15,10 @@ module.exports = (role) => {
 				passport.authenticate('clientBasic', { session: false })(req, res, next);
 				break;
 
+            case 'dummyClient':
+                passport.authenticate('dummyClientBasic', { session: false })(req, res, next);
+                break;
+
 			default:
 				throw new _err.createError(_err.getError('UNSUPPORTED_STRATEGY'));
 		}

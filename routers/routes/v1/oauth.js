@@ -14,5 +14,11 @@ module.exports = [
         method: 'GET',
         path: '/oauth/db/reset',
         handlers: [ isAuthenticated('client'), oauth.db.reset ]
+    },
+
+    {
+        method: 'GET',
+        path: '/oauth/db/seed/basic',
+        handlers: [ isAuthenticated('dummyClient'), oauth.db.seed ]
     }
 ];

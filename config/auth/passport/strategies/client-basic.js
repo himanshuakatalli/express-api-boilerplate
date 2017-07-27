@@ -10,13 +10,13 @@ const { BasicStrategy } = require('passport-http');
 const _validateClient = async (clientId, clientSecret, done) => {
 	try {
 
-		let client = await OauthClient.findOne({ 'client': clientId }).populate('user');
+		let client = await OauthClient.findOne({ 'client_id': clientId }).populate('user');
 
 		if (_validator.oauth.isValidOauthClient(client) && _validator.oauth.isValidClientSecret(client, clientSecret))
 			done(null, client);
 	}
 
-	catch(error) { done(error); }
+	catch(error) { done(null, false); }
 };
 
 module.exports = {

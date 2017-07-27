@@ -40,7 +40,7 @@ mongoose.connection.on('connected', async function () {
     console.info(`Connected to mongoose on ${envConfig.db}`);
     if (RESET_DB) {
         await _resetDB();
-        seeders.run(additionalSeeds.length || null)
+        seeders.run(additionalSeeds.length ? additionalSeeds : null)
             .then(function () {
                 mongoose.connection.close(function () {
                     console.log('Mongoose default connection disconnected post seeding');
@@ -50,7 +50,7 @@ mongoose.connection.on('connected', async function () {
     }
 
     else
-        seeders.run(additionalSeeds.length || null)
+        seeders.run(additionalSeeds.length ? additionalSeeds : null)
             .then(function () {
                 mongoose.connection.close(function () {
                     console.log('Mongoose default connection disconnected post seeding');
