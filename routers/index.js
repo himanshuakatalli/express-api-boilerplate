@@ -2,7 +2,7 @@
 
 const routeConfigurator = require('./routeConfigurator');
 
-const BASE_ROUTER_CONFIG = { version: 'root', mountPoint: '', router: routeConfigurator.getRouter('root') };
+const BASE_ROUTER_CONFIG = { version: '', mountPoint: '', router: routeConfigurator.getRouter() };
 
 module.exports = {
 	getConfiguredRoutersFor (ACTIVE_APIS) {

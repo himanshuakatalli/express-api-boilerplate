@@ -9,9 +9,15 @@ const response = require('../app/http/middlewares/response');
 
 const self = module.exports = {
     
-    getRouter(version) {
+    getRouter(version = '') {
+
+        if (version === '') {
+            version = 'root.js'
+        }
         
         const routesDir = path.join(__dirname, `/routes/${version}`);
+
+        console.log(routesDir);
 
         if (!fs.existsSync(routesDir))
             throw E.createError(E.getError('ROUTER_NOT_DEFINED'), `Router version ${version} does not exists`);

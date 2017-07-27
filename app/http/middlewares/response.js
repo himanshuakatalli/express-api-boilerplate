@@ -8,7 +8,7 @@ const self = module.exports = {
             res._json = res.json;
             res.json = function (data) {
 
-                if (version !== 'root')
+                if (!version.match(/root/))
                     data['APIVersion'] = version;
 
                 res._json(data);
