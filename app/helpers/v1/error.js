@@ -1,5 +1,6 @@
 "use strict";
 
+const eventEmitter = require('../../events');
 const E_CONSTANTS = require('./../../constants/errors');
 
 module.exports = {
@@ -12,8 +13,7 @@ module.exports = {
 		error.message = message || e.message;
 		error.status = status || e.status;
 
-
-
+        eventEmitter.emit('ERROR', error);
 		return error;
 	}
 };
