@@ -11,6 +11,9 @@ module.exports = {
 		error.code = code || e.code;
 		error.message = message || e.message;
 		error.status = status || e.status;
+
+
+
 		return error;
 	}
 };

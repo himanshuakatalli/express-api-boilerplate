@@ -19,5 +19,15 @@ module.exports = {
             throw _err.createError( _err.getError('UNAUTHORIZED'), 'Client and secret do not form a recognised pair' );
 
         return true;
+    },
+
+    isValidOauthRequest ({ username, password, grant_type }) {
+        if (!username || !password || !grant_type)
+            throw _err.createError(
+                _err.getError('BAD_REQUEST'),
+                'Username or password or grant_type is missing from request body'
+            );
+
+        return true;
     }
 };

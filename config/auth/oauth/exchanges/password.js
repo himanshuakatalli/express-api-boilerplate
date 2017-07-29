@@ -11,9 +11,10 @@ const _token = require('./../../../../app/helpers/v1/token');
 const _validator = require('../../../../app/helpers/v1/validator');
 
 const _postClientValidate = async (client, username, password, scope, done) => {
+
     try {
         let user  = await User.findOne({ email: username }).populate('roles').lean();
-        console.log(password, user);
+
         if (
             _validator.user.isValidUser(user) &&
             _validator.user.isValidUserPassword(password, user.password)
