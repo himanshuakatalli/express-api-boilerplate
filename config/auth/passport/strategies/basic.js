@@ -6,7 +6,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const response = require('./../../../../app/http/middlewares/response');
-const _hash = require('./../../../../app/helpers/v1/hash');
 const _validator = require('./../../../../app/helpers/v1/validator');
 
 const _oauthConfig = {

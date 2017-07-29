@@ -16,7 +16,9 @@ const _validateClient = async (clientId, clientSecret, done) => {
 			done(null, client);
 	}
 
-	catch(error) { done(null, false); }
+	catch(error) {
+	    done(null, false);
+	}
 };
 
 module.exports = {
