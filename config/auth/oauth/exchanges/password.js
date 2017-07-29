@@ -12,21 +12,35 @@ const _validator = require('../../../../app/helpers/v1/validator');
 
 const _postClientValidate = async (client, username, password, scope, done) => {
     try {
-        let user  = User.findOne({ email: username }).populate('roles');
+        let user  = await User.findOne({ email: username }).populate('roles').lean();
+        console.log(password, user);
         if (
             _validator.user.isValidUser(user) &&
             _validator.user.isValidUserPassword(password, user.password)
         ) {
-            scope = scope || user.roles.map(role => role.name).join(' ');
+            scope = scope || user.roles.map(role => role.name.toLowerCase());
             const tokenData = {
-
+                id: user._id,
+                email: user.email,
+                client: client.client_name,
+                time: Date.now()
             };
-            // let token = _token.generateTokens()
+            const tokenMetas = { audience: client.client_name };
+
+            let tokens = _token.generateTokens (tokenData, scope, tokenMetas, true);
+
+            await OauthToken.saveTokens(client, user, tokens, scope, OauthToken);
+
+            return done(
+                null,
+                tokens.ACCESS.token,
+                null,
+                { 'expires_in': tokens.ACCESS.expiresIn, 'scope': scope.join(' ') }
+            );
         }
     }
 
     catch (err) {
-        console.log(err);
         done(err);
     }
 };
