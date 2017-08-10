@@ -9,3 +9,12 @@ exports.NODE_ENV = process.env.NODE_ENV;
 exports.DEBUG = process.env.DEBUG;
 exports.PORT = process.env.PORT;
 exports.DB = process.env.DB;
+exports.DB_OPTIONS = {
+    promiseLibrary: global.Promise,
+    server: {
+        socketOptions: {
+            keepAlive: 300000,
+            connectTimeoutMS: 30000
+        }
+    }
+};
