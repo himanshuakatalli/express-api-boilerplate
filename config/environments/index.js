@@ -1,8 +1,12 @@
 "use strict";
 
 const defaultEnv = require('./default');
-const development = Object.assign({}, defaultEnv, require('./development'));
+const dev = Object.assign({}, defaultEnv, require('./development'));
+const staging = Object.assign({}, defaultEnv, require('./staging'));
+const prod = Object.assign({}, defaultEnv, require('./production'));
 
 module.exports = {
-    development
-}[process.env.NODE_ENV || 'development'];
+    dev,
+    staging,
+    prod
+}[process.env.NODE_ENV || 'dev'];

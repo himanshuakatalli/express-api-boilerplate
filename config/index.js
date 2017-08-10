@@ -1,8 +1,14 @@
 "use strict";
 
 require('dotenv').config();
-const env = require('./environments');
+const { expressLogger } = require('./logger');
 
 exports.init = function (app) {
-    console.log(env);
+
+    app.use(expressLogger);
+
+    app.get('/', function (req, res, next) {
+        // throw new Error;
+        res.send('aSD');
+    });
 }
