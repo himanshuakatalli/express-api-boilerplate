@@ -7,5 +7,10 @@ module.exports = [
         method: 'GET',
         path: '',
         handlers: [ root.index ]
+    },
+    {
+        method: 'ALL',
+        path: '*',
+        handlers: [ root.error ]
     }
 ];

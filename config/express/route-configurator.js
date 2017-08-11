@@ -49,6 +49,10 @@ exports.initializeRouter = function (routes, version) {
             case 'DELETE':
                 router.delete(route.path, route.handlers);
                 break;
+
+            case 'ALL':
+                router.all(route.path, route.handlers);
+                break;
         };
     });
 

@@ -18,9 +18,7 @@ exports.setupApp = function (app) {
 };
 
 exports.setupRouters = function (ACTIVE_APIS, app) {
-    const API_ROUTERS = [
-        { version: '', mountpoint: '', router: routeConfigurator.getRouter() } // For root routes
-    ];
+    const API_ROUTERS = [];
 
     ACTIVE_APIS.forEach(version => {
         API_ROUTERS.push({
@@ -29,7 +27,8 @@ exports.setupRouters = function (ACTIVE_APIS, app) {
             router: routeConfigurator.getRouter(version)
         });
     });
-
     API_ROUTERS.forEach(router => app.use(router.mountpoint, router.router));
-}
+    app.use('', routeConfigurator.getRouter()); // Sets up 404 and base route handling routes
+    return exports;
+};
 

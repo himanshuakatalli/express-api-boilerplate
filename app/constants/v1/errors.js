@@ -23,5 +23,11 @@ exports.CUSTOM_ERRORS = {
         code: 'E_HANDLER_TYPE_NOT_SUPPORTED',
         status: 500,
         message: 'Handlers are required to be function'
+    },
+
+    RESOURCE_NOT_FOUND: {
+        code: 'E_RESOURCE_NOT_FOUND',
+        status: 404,
+        message: 'Requested resource not found'
     }
 };
