@@ -1,7 +1,8 @@
 "use strict";
 
+const env = require('./config/environments');
 const app = require('./bootstrap/app');
-const PORT = process.env.PORT || 3000;
+const PORT = env.PORT || 3000;
 
 const { logger } = require('./config/logger');
 
