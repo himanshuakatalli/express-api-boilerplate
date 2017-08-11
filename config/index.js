@@ -3,12 +3,16 @@
 require('dotenv').config();
 require('./db');
 
-const ACTIVE_APIS = require('./express/api');
 const appConfig = require('./express');
+appConfig.preloadAPIFiles();
+
+const { getConfiguredRouters } = require('./express/route-configurator');
 
 exports.init = function (app) {
+
+    const ACTIVE_ROUTERS = getConfiguredRouters();
+
     appConfig
-        .preloadAPIFiles(ACTIVE_APIS)
         .setupApp(app)
-        .setupRouters(ACTIVE_APIS, app);
+        .setupRouters(app, ACTIVE_ROUTERS);
 }

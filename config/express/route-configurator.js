@@ -6,7 +6,20 @@ const env = require('../environments');
 const _err = require('../../app/helpers/v1/error');
 const response = require('../../app/middlewares/response');
 
+const ACTIVE_APIS = require('./api');
+
 const ensureFunctionHandlers = (handlers) => handlers.every(handler => typeof(handler) === 'function');
+
+exports.getConfiguredRouters = function () {
+    const BASE_ROUTER_CONFIG = { version: '', mountPoint: '', router: exports.getRouter() };
+    let API_ROUTERS = ACTIVE_APIS.map(version => Object.assign({}, {
+        version,
+        'mountPoint': '/api/' + version,
+        'router': exports.getRouter(version),
+    }));
+    API_ROUTERS.push(BASE_ROUTER_CONFIG);
+    return API_ROUTERS;
+};
 
 exports.getRouter = function (version = '') {
     const routesDir = version ? `${env.ROOT_DIR}/routes/${version}`: `${env.ROOT_DIR}/routes/root.js`;
@@ -57,4 +70,4 @@ exports.initializeRouter = function (routes, version) {
     });
 
     return router;
-}
+};

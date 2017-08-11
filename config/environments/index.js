@@ -1,5 +1,6 @@
 "use strict";
 
+require('dotenv').config();
 const defaultEnv = require('./default');
 const dev = Object.assign({}, defaultEnv, require('./development'));
 const staging = Object.assign({}, defaultEnv, require('./staging'));

@@ -2,33 +2,25 @@
 
 const { expressLogger } = require('../logger');
 const bodyParser = require('body-parser');
-const preload = require('./preload');
-const routeConfigurator = require('./route-configurator');
 
-exports.preloadAPIFiles = function (versions) {
-    versions.forEach(version => preload(version));
+const preload = require('./preload');
+const ACTIVE_APIS = require('./api');
+
+exports.preloadAPIFiles = function () {
+    ACTIVE_APIS.forEach(version => preload(version));
     return exports;
 };
 
 exports.setupApp = function (app) {
     app.use(expressLogger);
+    app.disable('x-powered-by');
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     return exports;
 };
 
-exports.setupRouters = function (ACTIVE_APIS, app) {
-    const API_ROUTERS = [];
-
-    ACTIVE_APIS.forEach(version => {
-        API_ROUTERS.push({
-            version,
-            mountpoint: `/api/${version}`,
-            router: routeConfigurator.getRouter(version)
-        });
-    });
-    API_ROUTERS.forEach(router => app.use(router.mountpoint, router.router));
-    app.use('', routeConfigurator.getRouter()); // Sets up 404 and base route handling routes
+exports.setupRouters = function (app, routers) {
+    routers.forEach(router => app.use(router.mountPoint, router.router));
     return exports;
 };
 
