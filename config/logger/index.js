@@ -36,11 +36,11 @@ exports.logger = new (winston.Logger)({
     ]
 });
 
-exports.expressLogger = expressWinston.logger({
+exports.requestLogger = expressWinston.logger({
     transports: [
         new (winston.transports.DailyRotateFile)(
             Object.assign({}, transportOptions, {
-                filename: `${env.LOG_DIR}/express.log`,
+                filename: `${env.LOG_DIR}/requests.log`,
                 prepend: true,
                 maxFiles: 5,
                 compress: true,
