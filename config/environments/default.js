@@ -18,3 +18,4 @@ exports.DB_OPTIONS = {
         }
     }
 };
+exports.ACTIVE_APIS = process.env.ACTIVE_APIS || 'v1';
