@@ -9,7 +9,7 @@ const response = require('../../app/middlewares/response');
 const ensureFunctionHandlers = (handlers) => handlers.every(handler => typeof(handler) === 'function');
 
 exports.getRouter = function (version = '') {
-    const routesDir = version ? `${env.ROOT_DIR}/routes/${version}`: `${env.ROOT_DIR}/routes/root`;
+    const routesDir = version ? `${env.ROOT_DIR}/routes/${version}`: `${env.ROOT_DIR}/routes/root.js`;
     if (!fs.existsSync(routesDir))
         _err.createError('ROUTES_NOT_DEFINED', `Routes dir ${routesDir} not present`);
 
