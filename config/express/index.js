@@ -19,7 +19,7 @@ exports.setupApp = function (app) {
 
 exports.setupRouters = function (ACTIVE_APIS, app) {
     const API_ROUTERS = [
-        { version: '', mountpoint: '', router: routeConfigurator.getRouter() }
+        { version: '', mountpoint: '', router: routeConfigurator.getRouter() } // For root routes
     ];
 
     ACTIVE_APIS.forEach(version => {

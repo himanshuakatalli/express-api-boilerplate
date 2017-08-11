@@ -1,6 +1,6 @@
 "use strict";
 
-const root = require('../app/controllers/v1/root');
+const root = require('../app/controllers/root');
 
 module.exports = [
     {
